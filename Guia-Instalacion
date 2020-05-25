@@ -1,0 +1,29 @@
+--Instalar PrestaShop en Ubuntu 18.04
+--Lo primero que debemos hacer es instalar «Nginx«.
+
+sudo apt update
+sudo apt install nginx
+
+--Verificamos que está corriendo.
+ sudo systemctl status nginx
+
+ejemplo de salida valida…
+
+● nginx.service – Startup script for nginx service
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+Active: active (running) since lun 2019-03-25 18:28:13 CET; 11h ago
+Main PID: 33545 (nginx)
+CGroup: /system.slice/nginx.service
+├─33545 nginx: master process /usr/sbin/nginx
+└─33546 nginx: worker process
+Suponemos que usaras por defecto el firewall de Ubuntu UFW, por tanto debemos abrir los puertos 80 y 443 entre otros.
+sudo ufw allow 'Nginx Full'
+
+-- Habilitamos el servicio.
+
+sudo systemctl enable nginx
+
+--Actualizamos e instalamos unzip.
+
+sudo apt update && sudo apt upgrade
+sudo apt install unzip
